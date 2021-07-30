@@ -68,14 +68,13 @@ function App() {
       if (!stateCopy.clickedPics.includes(e.target.id)) {
         stateCopy.currentScore = stateCopy.currentScore + 1;
         
-        stateCopy.clickedPics.push(e.target.id);
-
-        if (game.highScore <= game.currentScore) {
-          stateCopy.highScore = stateCopy.currentScore;
-
-          
-          
+        if(stateCopy.currentScore === 12){
+          stateCopy.clickedPics = [];
+          stateCopy.currentScore = 0;
         }
+        if (game.highScore <= game.currentScore) {
+          stateCopy.highScore = stateCopy.highScore+1;}
+        stateCopy.clickedPics.push(e.target.id);
       } else {
         stateCopy.currentScore = 0;
         stateCopy.clickedPics = [];
